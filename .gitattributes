@@ -1,0 +1,98 @@
+* text=auto eol=lf
+*.cmd text eol=crlf
+
+# Текст Unity сохраняет построчный diff и GUID references.
+*.cs text
+*.unity text -filter -merge
+*.prefab text -filter -merge
+*.meta text -filter -merge
+*.asset text=auto -filter -merge
+*.mat text -filter -merge
+*.controller text -filter -merge
+*.overrideController text -filter -merge
+*.anim text -filter -merge
+*.asmdef text
+*.asmref text
+*.inputactions text
+# .bytes может содержать бинарные данные, даже если Git считает их текстом.
+*.bytes -text
+*.tgz -text
+*.shader text
+*.hlsl text
+*.shadergraph text
+*.shadersubgraph text
+
+# Unity-сериализатор сохраняет пробел после пустого YAML-значения.
+*.unity whitespace=-blank-at-eol
+*.prefab whitespace=-blank-at-eol
+*.asset whitespace=-blank-at-eol
+*.mat whitespace=-blank-at-eol
+*.meta whitespace=-blank-at-eol
+
+# Бинарные assets и внешние сборки; metadata остаётся обычным Git.
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.tif filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
+*.bmp filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.webp filter=lfs diff=lfs merge=lfs -text
+*.hdr filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.psb filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.obj filter=lfs diff=lfs merge=lfs -text
+*.glb filter=lfs diff=lfs merge=lfs -text
+*.gltf filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+*.aiff filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+*.ttf filter=lfs diff=lfs merge=lfs -text
+*.otf filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.pdb filter=lfs diff=lfs merge=lfs -text
+*.mdb filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
+*.dylib filter=lfs diff=lfs merge=lfs -text
+*.a filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.7z filter=lfs diff=lfs merge=lfs -text
+*.unitypackage filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+
+# Бинарный .asset требует точного path-правила ниже, не wildcard на все .asset.
+
+# Оригиналы поставщика проверяются по SHA-256: checkout сохраняет их байты.
+/Assets/ThirdParty/Demigiant/DOTween/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+/Assets/ThirdParty/Demigiant/DOTween/**/*.meta text eol=lf
+/Assets/ThirdParty/Demigiant/DOTween/Modules/DOTween.Modules.asmdef text eol=lf
+
+# Импортированные исходники TMP сохраняют формат поставщика.
+/Assets/ThirdParty/TextMeshPro/** -whitespace
+
+# GitHub Templates не поддерживает LFS: небольшая базовая поставка — обычный Git.
+/Assets/ThirdParty/Demigiant/DOTween/DOTween.dll -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/DOTween.dll.mdb -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/DOTweenEditor.dll -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/DOTweenUpgradeManager.dll -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/DOTweenUpgradeManager.dll.mdb -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/Imgs/DOTweenIcon.png -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/Imgs/DOTweenMiniIcon.png -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/Imgs/Footer.png -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/Imgs/Footer_dark.png -filter -diff -merge -text
+/Assets/ThirdParty/Demigiant/DOTween/Editor/Imgs/Header.jpg -filter -diff -merge -text
+/Assets/ThirdParty/TextMeshPro/Fonts/LiberationSans.ttf -filter -diff -merge -text
+/Assets/ThirdParty/TextMeshPro/Sprites/EmojiOne.png -filter -diff -merge -text
+
+# NuGet-поставки сохраняют исходные байты для проверки vendor lock.
+/Assets/ThirdParty/NuGet/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+/Assets/ThirdParty/NuGet/**/*.meta text eol=lf

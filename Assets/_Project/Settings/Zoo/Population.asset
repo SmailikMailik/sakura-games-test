@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61554005a375fe14b8bb4404fecc3335, type: 3}
+  m_Name: Population
+  m_EditorClassIdentifier: Project.Runtime::Project.Runtime.Population.PopulationSettings
+  _actorDefinitions:
+  - {fileID: 11400000, guid: b066941828177fa44b38a8b9331318d8, type: 2}
+  - {fileID: 11400000, guid: a377867d87fb03641a1136852c70fac4, type: 2}
+  _spawnIntervalSeconds: {x: 1, y: 2}
+  _boundaryPadding: 0.3
+  _actorSeparationPadding: 0.05
+  _obstacleClearance: 0.05
+  _retryIntervalSeconds: 0.02
+  _maxPlacementAttempts: 16

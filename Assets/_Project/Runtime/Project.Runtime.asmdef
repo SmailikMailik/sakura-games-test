@@ -1,0 +1,17 @@
+{
+  "name": "Project.Runtime",
+  "rootNamespace": "Project.Runtime",
+  "references": [
+    "VContainer",
+    "DOTween.Modules",
+    "Unity.TextMeshPro",
+    "Unity.ugui",
+    "R3.Unity",
+    "R3.Unity.TextMeshPro"
+  ],
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "DOTween.dll",
+    "R3.dll"
+  ]
+}
